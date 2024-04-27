@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>星js</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+html,body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    }        
+
+body {
+	background: -moz-linear-gradient(top, black, #213a70);
+  background: -webkit-linear-gradient(top, black, #213a70);
+  background: linear-gradient(to bottom, black, #213a70);    
+  min-height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#starry_sky {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.star {
+  background-color: white;
+  position: relative;
+  border-radius: 50%;
+  animation-name: twinkle;
+  animation-iteration-count: infinite;
+}
+
+
+@keyframes twinkle {
+  50% {
+    transform: scale(0.2);   
+  }
+} 
+   </style>
+
+
+ 
+    </head>
+    <body>
+    <div id="starry_sky"></div> 
+    <script>
+      for(var i = 0; i < 1000; i++) {
+        //get random dimensions
+        var x = Math.random() * 120;
+        var y = Math.random() * 50;
+        var d = Math.random() * 4;
+        var s = Math.random() * 2 + 1.5;
+        //create new element and add to html
+        var star = document.createElement("div");
+        star.classList.add("star");
+        var sky = document.getElementById("starry_sky");
+        sky.appendChild(star);
+      
+        star.style.width = d + "px";
+        star.style.height = d + "px";
+        star.style.top = y + "%";
+        star.style.left = x + "%";
+        star.style.animationDuration = s + "s";
+      }
+      
+       </script>   
+       
+    </body>
+</html>
